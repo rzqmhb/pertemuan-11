@@ -13,4 +13,15 @@ class Mahasiswa extends Model
     protected $primaryKey = 'nim';
     public $incrementing = false;
     public $timestamps = false;
+
+    protected $fillable =[
+        'nim',
+        'nama',
+        'foto',
+        'tgl_lahir',
+        'jurusan',
+        'email',
+        'no_hp',
+        'kelas_id',
+    ];
 }

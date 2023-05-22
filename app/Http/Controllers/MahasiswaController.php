@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MahasiswaResource;
 use Illuminate\Http\Request;
+use App\Models\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
@@ -14,6 +16,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         //
+        return MahasiswaResource::collection(Mahasiswa::paginate(5));
     }
 
     /**
@@ -43,9 +46,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Mahasiswa $mahasiswa)
     {
         //
+        return new MahasiswaResource($mahasiswa);
     }
 
     /**
